@@ -1,2 +1,22 @@
-# kaggle-log
- Kaggle competition notes and experiments
+# Kaggle Log
+
+## Titanic（2026/05/09）
+### EDAで気づいたこと
+- Sexが最も予測力が強い（女性75% vs 男性19%）
+- FamilySize 2〜4人が生存率高い
+- Cabinは77%欠損なのでフラグ化
+
+### 試したこと
+| 手法 | CV Score | LB Score |
+|---|---|---|
+| ロジスティック回帰 | 0.799 | 0.75 |
+
+### 改善候補リスト
+- Ageの欠損をPclassから予測して補完
+- Nameから敬称を特徴量化
+- LightGBMを試す
+
+### 学んだこと
+- EDA → 前処理 → モデル → 提出の流れ
+- 中央値補完は最初はこれでOK、精度上げたい時は要検討
+- cv=5が安定する理由（テストデータが多い方がブレにくい）
